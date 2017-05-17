@@ -1,5 +1,5 @@
 class Dispatcher {
-  constructor(propr){
+  constructor(propr) {
     this.isDispatching = false;
     this.actionHandlers = [];
   }
@@ -8,9 +8,9 @@ class Dispatcher {
     this.actionHandlers.push(actionHandler);
   }
 
-  dispatch(action){
-    if(this.isDispatching){
-      throw new Error("I'm sorry but I'm busy")
+  dispatch(action) {
+    if (this.isDispatching) {
+      throw new Error("I'm sorry but I'm busy");
     }
 
     this.isDispatching = true;
@@ -18,8 +18,7 @@ class Dispatcher {
     this.actionHandlers.forEach(handler => handler(action));
 
     this.isDispatching = false;
-
   }
 }
 
-export default new Dispatcher;
+export default new Dispatcher();

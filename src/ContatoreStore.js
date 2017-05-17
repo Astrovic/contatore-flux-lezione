@@ -15,12 +15,12 @@ dovuto fare una createOptionDialoge poi tornatr la copia modificata
 */
 
 const increment = () => {
-  conto +=1;
+  conto += 1;
 };
 
 const decrement = () => {
-  if(conto>0){
-    conto -=1;
+  if (conto > 0) {
+    conto -= 1;
   }
 };
 
@@ -45,7 +45,7 @@ const handleAction = (action) => {
   // c'è stato il cambiamento, adesso tutti quelli che si sono registrati a questo
   // evento, atraverso la ViewController, potranno aggiornare la view
   instance.emitChange();
-}
+};
 
 Dispatcher.register(handleAction);
 
@@ -64,5 +64,5 @@ class ContatoreStore extends EventEmitter {  // emissione di un evento, come i l
   }
 }
 
-const instance = new ContatoreStore;
+const instance = new ContatoreStore();
 export default instance;

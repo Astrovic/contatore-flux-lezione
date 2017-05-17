@@ -3,9 +3,10 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { increment, decrement, reset } from './src/actions';
 import ContatoreStore from './src/ContatoreStore';
+import { Button } from 'react-native-elements';
 
 class App extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       conto: ContatoreStore.getConto() // otteniamo lo stato iniziale
@@ -18,7 +19,7 @@ class App extends React.Component {
   updateStatus() {
     this.setState({ conto: ContatoreStore.getConto() });
   }
-  comonentWillUnmount(){
+  comonentWillUnmount() {
     ContatoreStore.removeChangeListener(this.updateStatus);
   }
   render() {
@@ -28,19 +29,43 @@ class App extends React.Component {
         <Text style={styles.conto}>Conto: {this.state.conto}</Text>
         <TouchableOpacity
           style={styles.button}
-          onPress={increment}>
+          onPress={increment}
+        >
           <Text style={styles.text}>+</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.button}
-          onPress={decrement}>
+          onPress={decrement}
+        >
           <Text style={styles.text}>-</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.button}
-          onPress={reset}>
+          onPress={reset}
+        >
           <Text style={styles.text}>Reset</Text>
         </TouchableOpacity>
+        <Button
+          raised
+          icon={{ name: 'cached' }}
+          title='INCREMENT'
+          onPress={increment}
+          style={styles.rne}
+        />
+        <Button
+          raised
+          icon={{ name: 'cached' }}
+          title='DECREMENT'
+          onPress={decrement}
+          style={styles.rne}
+        />
+        <Button
+          raised
+          icon={{ name: 'cached' }}
+          title='RESET'
+          onPress={reset}
+          style={styles.rne}
+        />
       </View>
     );
   }
@@ -55,7 +80,7 @@ const styles = StyleSheet.create({
   },
   button: {
     margin: 10,
-    padding : 10,
+    padding: 10,
     backgroundColor: 'lightcoral'
   },
   text: {
@@ -64,6 +89,9 @@ const styles = StyleSheet.create({
   conto: {
     margin: 20,
     fontSize: 24
+  },
+  rne: {
+    padding: 5
   }
 });
 
